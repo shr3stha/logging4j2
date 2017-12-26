@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Built-By: sagun
+Class-Path: lib/log4j-api-2.9.1.jar lib/log4j-core-2.9.1.jar
+Build-Jdk: 1.8.0_151
+Created-By: Maven Integration for Eclipse
+Main-Class: test.Main
+

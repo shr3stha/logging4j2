@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="trace" name="MyApp" packages="">
+	<Properties>
+		<Property name="baseDir">C:/temp/logs/</Property>
+	</Properties>
+	<Appenders>
+		<RollingFile name="RollingFile" fileName="${baseDir}app.log"
+			filePattern="${baseDir}app-log-999.%i">
+			<PatternLayout pattern="%d %p %c{1} [%t] %m%n" />
+			<Policies>
+				<SizeBasedTriggeringPolicy size="1 mb" />
+			</Policies>
+			<DefaultRolloverStrategy max="8">
+				<Delete basePath="${baseDir}" maxDepth="1">
+					<IfAll>
+						<IfFilename glob="*app*.log*" />
+						<IfAccumulatedFileCount exceeds="9" />
+					</IfAll>
+				</Delete>
+			</DefaultRolloverStrategy>
+		</RollingFile>
+	</Appenders>
+	<Loggers>
+		<Root level="trace">
+			<AppenderRef ref="RollingFile" />
+		</Root>
+	</Loggers>
+</Configuration>
